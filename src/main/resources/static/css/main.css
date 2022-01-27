@@ -1,0 +1,20 @@
+table {
+    width: 90%;
+    background: #ccc;
+    margin: 10px auto;
+    border-collapse: collapse;
+}
+th,td {
+    height: 60px;
+    line-height: 25px;
+    text-align: center;
+    border: 1px solid #222514;
+}
+th {
+    background: #8adc84;
+    font-weight: normal;
+}
+td a:hover {
+    color: #06f;
+    text-decoration: underline;
+}

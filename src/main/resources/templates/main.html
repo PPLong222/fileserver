@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+    <div align="center" th:object="${fileUtils}">
+        <div th:text="'当前服务器有文件: '+${files.size()} + '个,累计大小: ' + ${totalSize}"></div>
+        <form th:action="@{/uploadFiles}" method="post" enctype="multipart/form-data" style="margin-top: 20px">
+            <input type="file" name="upLoadFiles" multiple >
+            <button th:text="上传文件" type="submit" ></button >
+        </form>
+        <div class="table-filelist">
+            <table class="table table-striped table-sm">
+                <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>File Name</th>
+                    <th>Size</th>
+                    <th>upLoadTime</th>
+                    <th>OP</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="file:${files}">
+                    <td>
+                        <img th:src="@{${fileUtils.judgeFileType(file.getName())}}" height="50" width="50" alt="">
+                    </td>
+                    <td th:text="${file.getName()}"></td>
+                    <td th:text="${fileUtils.calculateAccurateSize(file.getSize())}"></td>
+                    <td th:text="${fileUtils.getConvertTime(file.getTime())}"></td>
+                    <td>
+                        <a th:href="@{/download/{name}(name=${file.getName()})}">Download</a>
+                        <a th:href="@{/delete/{name}(name=${file.getName()})}">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</body>
+</html>

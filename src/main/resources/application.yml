@@ -1,0 +1,32 @@
+spring:
+    servlet:
+        multipart:
+            max-file-size: 800MB
+            max-request-size: 1000MB
+    datasource:
+        username: root
+        password: Zyl2000215
+        url: jdbc:mysql://localhost:3306/fileserver?useUnicode=true&charaterEncoding=utf-8
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    thymeleaf:
+        cache: false
+    web:
+        resources:
+            static-locations:
+                classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${file.local_path}
+
+file:
+    remote_path: /home/ServerTest/upload/
+    local_path: /opt/ServerTest/
+mybatis:
+    type-aliases-package: com.pplong.fileserver.pojo
+    mapper-locations: classpath:mybatis/mapper/*.xml
+server:
+    servlet:
+        encoding:
+            charset: utf-8
+            enabled: true
+            force: true
+    tomcat:
+        uri-encoding: utf-8
+
