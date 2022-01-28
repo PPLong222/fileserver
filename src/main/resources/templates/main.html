@@ -6,7 +6,7 @@
     <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
 
 </head>
-<body>
+<body background="/img/loginBackground.png" style="background-size: 100% 100%; background-repeat: no-repeat; background-attachment: fixed">
     <div align="center" th:object="${fileUtils}">
         <div th:text="'当前服务器有文件: '+${files.size()} + '个,累计大小: ' + ${totalSize}"></div>
         <form th:action="@{/uploadFiles}" method="post" enctype="multipart/form-data" style="margin-top: 20px">
@@ -27,9 +27,9 @@
                 <tbody>
                 <tr th:each="file:${files}">
                     <td>
-                        <img th:src="@{${fileUtils.judgeFileType(file.getName())}}" height="50" width="50" alt="">
+                        <img th:src="@{${fileUtils.judgeFileType(file.getOriginName())}}" height="50" width="50" alt="">
                     </td>
-                    <td th:text="${file.getName()}"></td>
+                    <td th:text="${file.getOriginName()}"></td>
                     <td th:text="${fileUtils.calculateAccurateSize(file.getSize())}"></td>
                     <td th:text="${fileUtils.getConvertTime(file.getTime())}"></td>
                     <td>

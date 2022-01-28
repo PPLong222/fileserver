@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 
 public class FileUtils {
     static FileUtils fileUtils;
+    // not safe
     public static FileUtils getInstance() {
         if (fileUtils == null)
             fileUtils = new FileUtils();
@@ -97,14 +98,22 @@ public class FileUtils {
         return true;
     }
 
+    /**
+     *
+     * @param originName
+     * @return a name md5 with name\suffix\curTime
+     *         in a way can avoid same name problem
+     */
     public static String encodeFileNameWithMD5(String originName) {
         String[] suffixArr = originName.split("\\.");
         String suffix = suffixArr[suffixArr.length - 1];
+        StringBuilder sb = new StringBuilder();
         if(originName.contains(".tar.gz")) {
             suffix = "tar.gz";
         }
+        originName += System.currentTimeMillis();
         String name = DigestUtils.md5DigestAsHex(originName.getBytes(StandardCharsets.UTF_8));
-        name += "." +suffix;
-        return name;
+        sb.append(name).append(".").append(suffix);
+        return sb.toString();
     }
 }

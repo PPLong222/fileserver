@@ -1,7 +1,7 @@
 table {
     width: 90%;
-    background: #ccc;
     margin: 10px auto;
+    background: rgba(204, 204, 204, 0.45);
     border-collapse: collapse;
 }
 th,td {
@@ -11,10 +11,11 @@ th,td {
     border: 1px solid #222514;
 }
 th {
-    background: #8adc84;
+    background: rgba(91, 105, 55, 0.47);
     font-weight: normal;
 }
 td a:hover {
     color: #06f;
     text-decoration: underline;
+
 }

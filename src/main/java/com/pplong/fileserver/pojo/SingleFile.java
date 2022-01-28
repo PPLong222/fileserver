@@ -9,14 +9,7 @@ public class SingleFile {
     private String name;
     private long size;
     private long time;
-    private String location;
-
-    public SingleFile(String name, long size, long time, String location) {
-        this.name = name;
-        this.size = size;
-        this.time = time;
-        this.location = location;
-    }
+    private String originName;
 
     public String getName() {
         return name;
@@ -42,13 +35,18 @@ public class SingleFile {
         this.time = time;
     }
 
-    public String getLocation() {
-        return location;
+    public String getOriginName() {
+        return originName;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setOriginName(String originName) {
+        this.originName = originName;
     }
 
-
+    public SingleFile(String name, String originName, long size, long time) {
+        this.name = name;
+        this.size = size;
+        this.time = time;
+        this.originName = originName;
+    }
 }

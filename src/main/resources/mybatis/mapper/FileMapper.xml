@@ -16,7 +16,7 @@
     </select>
 
     <insert id="insertSingleFileRec" parameterType="SingleFile">
-        insert into SingleFile values (#{name}, #{size}, #{time}, #{location})
+        insert into SingleFile values (#{name}, #{originName}, #{size}, #{time})
     </insert>
 
     <delete id="deleteSingleFile">

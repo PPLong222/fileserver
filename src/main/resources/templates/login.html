@@ -5,16 +5,17 @@
     <title>Login Page</title>
     <link th:href="@{/css/logincss.css}" rel="stylesheet" type="text/css">
 </head>
-<body>
+<!--use relative path rather than th:background-->
+<body background="/img/loginBackground.png" style="background-size: 100% 100%; background-repeat: no-repeat; background-attachment: fixed">
     <div align="center">
-        <h1>PPFile Server</h1>
-        <div  style="width:100px; height:100px; border-radius:100%; overflow:hidden;">
-            <img class="divoval" th:src="@{/img/loginImg.jpg}" width="100" height="100" alt="">
+        <h1 style="margin-top: 60px">PPFile Server</h1>
+        <div  style="width:200px; height:200px; border-radius:100%; overflow:hidden;">
+            <img class="divoval" th:src="@{/img/loginImg.jpg}" width="200" height="200" alt="">
         </div>
         <div style="margin-top: 20px">By PPLong</div>
         <form class = "form-signin" th:action="@{/onLogin}" style="margin-top: 20px">
-            <input type="password" th:name="pwd"><br>
-            <input type="submit" value="Confirm" style="margin-top: 10px">
+            <input type="password" th:name="pwd" autofocus="autofocus" style="border-radius: 15px;width: 180px;height: 30px;border: 1px #8adc84 solid;caret-color: chocolate;background-color: #cbe0cb;outline-color: #8adc84;text-align: center"><br>
+            <input type="submit" value="Confirm" style="margin-top: 10px;border-radius: 15px;width: 120px;height: 30px;background-color: #FD8A79;color: #3E4726;font-size: 18px">
             <div th:text="${error_msg}" style="color:red"></div>
             <div th:text="${msg}" style="color: rebeccapurple"></div>
         </form>

@@ -57,7 +57,7 @@ public class FileController {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    SingleFile singleFile = new SingleFile(newName, file.getSize(), System.currentTimeMillis(), loc);
+                    SingleFile singleFile = new SingleFile(newName, file.getOriginalFilename(), file.getSize(), System.currentTimeMillis());
                     int i = mapper.insertSingleFileRec(singleFile);
                     if(i != 1) {
 
